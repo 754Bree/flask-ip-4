@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf%}
+{% from 'display_comment_macro.html' import display_comments as commentDisplay%}
+{% block content %}
+<article class="media content-section">
+    <img class="rounded-circle article-img"
+         src="{{ url_for('static', filename='profile_pic/' + post.author.image_file) }}">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2" href="#">{{ post.author.username }}</a>
+            <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            <div>
+                <button class="btn btn-info btn-sm m-1" data-target="#commentModal" data-toggle="modal" type="button">
+                    Comment
+                </button>
+                {% if post.author == current_user %}
+                <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                 href="{{ url_for('main.update_post', post_id=post.id) }}">Update</a>
+                <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">
+                    Delete
+                </button>
+                {% endif %}
+            </div>
+        </div>
+        <h2 class="article-title" style="color: blue;">{{ post.title }}</h2>
+        <p class="article-content">{{ post.content }}</p>
+    </div>
+</article>
+
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <h1>{{commentDisplay(comments)}}</h1>
+        </div>
+    </div>
+</article>
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="{{ url_for('main.delete_post', post_id=post.id) }}" method="POST">
+                    <input class="btn btn-danger" type="submit" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalTitle">Comment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{url_for('main.comment',post_id = post.id)}}">
+                    <div class="form-group">
+                        <label for="title" class="col-form-label">Title:</label>
+                        <input type="text" class="form-control" id="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="col-form-label">Comment:</label>
+                        <textarea class="form-control" id="comment" name="newcomment"></textarea>
+                    </div>
+
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Comment</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

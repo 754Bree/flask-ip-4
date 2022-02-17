@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+
+{% macro display_quotes(quotes)%}
+<div class="jumbotron">
+    <h5 class="mt-3 text-success">{{quotes.quote}}</h5>
+    <h6>~ {{quotes.author}}</h6>
+</div>
+{%endmacro%}

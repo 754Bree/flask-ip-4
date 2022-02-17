@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome and Thanks for signing up. 
+
