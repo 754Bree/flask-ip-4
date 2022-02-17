@@ -17,7 +17,6 @@ The following command installs all the application requirements
 > ## Installations
 
 > Run 
-> ``https://github.com/754Bree/flask-ip-4.git``
 
 or download the zip file from github.
 
