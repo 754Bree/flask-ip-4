@@ -5,7 +5,7 @@
 Briana Odhiambo
 
 ## Demo
-You can view live demo here https://
+You can view live demo here https://blo7.herokuapp.com/
 
 
 ## Requirements
