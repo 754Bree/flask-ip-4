@@ -62,7 +62,7 @@ After extracting the files,
 > * As a writer, I would like to Logout of my account.
 
 ## Test Credentials
-> * email: 
+> * email:brianaodhiambo754@gmail.com 
 > * Password: Ice754
 
 ## License
