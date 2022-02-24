@@ -1,11 +1,11 @@
 > # Personal Blog
-> This is a personal blogging website where you can create and share your opinions and other users can read and comment on them. you also has random quotes that inspire the > users. 
+> This is a personal blogging website where you can create and share your opinions and other users can read and comment on them. you also has random quotes that inspire the users. 
 
 > ## Author
-Briana Odhiambo
+BRIANA ODHIAMBO
 
 ## Demo
-You can view live demo here https://
+You can view live demo here https://blo7.herokuapp.com/
 
 
 ## Requirements
@@ -62,7 +62,7 @@ After extracting the files,
 > * As a writer, I would like to Logout of my account.
 
 ## Test Credentials
-> * email: brianaodhiambo754@gmail.com
+> * email:brianaodhiambo754@gmail.com 
 > * Password: Ice754
 
 ## License
